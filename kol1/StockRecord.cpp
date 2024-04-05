@@ -1,16 +1,15 @@
 #include<iostream>
 #include<cstring>
-#include<iomanip>
 using namespace std;
 class StockRecord{
 private:
     char id[13];
     char nameCompany[51];
-    double priceBuy;
+    int priceBuy;
     double priceNow;
     int numActions;
 public:
-    StockRecord(char * id="", char * nameCompany="", double priceBuy=0.0, double priceNow=0.0, int actions=0){
+    StockRecord(char * id="", char * nameCompany="", int priceBuy=0, double priceNow=0.0, int numActions=0){
         strcpy(this->id,id);
         strcpy(this->nameCompany,nameCompany);
         this->priceBuy=priceBuy;
@@ -34,12 +33,21 @@ public:
     double profit()const{
         return numActions * (priceNow - priceBuy);
     }
+    StockRecord &operator=(const StockRecord &s){
+        if(this!=&s){
+            strcpy(this->id,s.id);
+            strcpy(this->nameCompany,s.nameCompany);
+            this->priceBuy=s.priceBuy;
+            this->priceNow=s.priceNow;
+            this->numActions=s.numActions;
+        }
+        return *this;
+    }
     friend ostream &operator<<(ostream &out, const StockRecord &sr){
-        out << sr.nameCompany << " " << sr.numActions << " "
-            << fixed << setprecision(2) << sr.priceBuy << " "
-            << sr.priceNow << " " << sr.profit();
+        out<<sr.nameCompany<<" "<<sr.numActions<<" "<<sr.priceBuy<<" "<<sr.priceNow<<" "<<sr.profit();
         return out;
     }
+    ~StockRecord(){}
 
 
 };
@@ -50,7 +58,7 @@ class Client{
     StockRecord * nameCompany;
     int numObj;
 public:
-    Client(char *nameSurname, int id, StockRecord *nameCompany= nullptr, int numObj=0) :  ID(id),nameCompany(nameCompany),numObj(numObj) {
+    Client(char *nameSurname, int id, StockRecord *nameCompany= nullptr, int numObj=0) :  ID(id),numObj(numObj) {
         strcpy(this->nameSurname,nameSurname);
         if(numObj>0 && nameCompany != nullptr){
             this->nameCompany=new StockRecord[numObj];
@@ -67,11 +75,21 @@ public:
         this->numObj=c.numObj;
 
     }
+    Client &operator=(const Client &c) {
+        if (this != &c) {
+            delete[]nameCompany;
+            strcpy(this->nameSurname, c.nameSurname);
+            this->ID = c.ID;
+            this->numObj = c.numObj;
+        }
+        return *this;
+    }
     ~Client(){
         delete[]nameCompany;
     }
-    double totalValue()const{
-        double total =0.0;
+
+    int totalValue()const{
+        int total =0;
         for (int i = 0; i < numObj; ++i) {
             total+=nameCompany[i].value();
         }
@@ -86,6 +104,7 @@ public:
         delete[]nameCompany;
         nameCompany=temp;
         ++numObj;
+        return *this;
 
     }
 

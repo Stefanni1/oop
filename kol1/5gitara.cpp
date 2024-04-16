@@ -4,40 +4,43 @@ using namespace std;
 class Gitara{
 private:
     char seriski[25];
-    float cena;
+    float nabavna;
     int godina;
     char tip[40];
 public:
-    Gitara(char * seriski="", float cena=0.0,int godina=0,char * tip=""){
+    Gitara(char * tip="",char * seriski="", int godina=0,float cena=0.0){
         strcpy(this->seriski,seriski);
-        this->cena=cena;
+        this->nabavna=cena;
         this->godina=godina;
         strcpy(this->tip,tip);
     }
     Gitara(const Gitara &g){
         strcpy(this->seriski,g.seriski);
-        this->cena=g.cena;
+        this->nabavna=g.nabavna;
         this->godina=g.godina;
         strcpy(this->tip,g.tip);
     }
-    bool daliIsti( Gitara g){
-        if(seriski != g.seriski){
-            bool daliIsti=false;
-        }
-        else {
-            bool daliIsti=true;
-        }
+    Gitara &operator=(const Gitara &g){
+        strcpy(this->seriski,g.seriski);
+        this->nabavna=g.nabavna;
+        this->godina=g.godina;
+        strcpy(this->tip,g.tip);
+        return *this;
+    }
+    ~Gitara(){}
+    bool daliIsti( Gitara &g){
+        return strcmp(this->seriski, g.seriski)==0;
     }
     void pecati(){
-        cout<<"[ "<<seriski<<"] "<<"[ "<<tip<<"] "<<"[ "<<cena<<"] "<<endl;
+        cout << seriski << " " << tip << " " << nabavna << endl;
     }
 
     const char *getSeriski() const {
         return seriski;
     }
 
-    float getCena() const {
-        return cena;
+    float getNabavna() const {
+        return nabavna;
     }
 
     int getGodina() const {
@@ -48,7 +51,7 @@ public:
         return tip;
     }
 
-    ~Gitara(){}
+
 };
 class Magacin{
 private:
@@ -58,7 +61,7 @@ private:
     int br;
     int god;
 public:
-    Magacin(char *ime="",char * lokacija="",Gitara * gitari=0, int br=0,int god=0){
+    Magacin(char *ime="",char * lokacija="",int god=0,Gitara * gitari=0, int br=0){
         strcpy(this->ime,ime);
         strcpy(this->lokacija,lokacija);
         this->gitari=new Gitara[br];
@@ -71,20 +74,76 @@ public:
         this->gitari=new Gitara[m.br];
         this->br=m.br;
         this->god=m.god;
+        for (int i = 0; i < m.br; ++i) {
+            gitari[i]=m.gitari[i];
+            br=m.br;
+        }
     }
     Magacin &operator=(const Magacin &m){
         if(this!=&m){
             delete[]gitari;
-            strcpy(this->ime,m.ime);
-            strcpy(this->lokacija,m.lokacija);
             this->br=m.br;
             this->god=m.god;
+            gitari=new Gitara[br];
+            for (int i = 0; i < br; ++i) {
+                gitari[i]=m.gitari[i];
+            }
+            strcpy(this->ime,m.ime);
+            strcpy(this->lokacija,m.lokacija);
+
         }
         return *this;
     }
-    double vrednost(){
-        double sum=0;
+    ~Magacin(){
+        delete[]gitari;
+    }
 
+    double vrednost() {
+        double sum = 0;
+        for (int i = 0; i < br; ++i) {
+            sum += gitari[i].getNabavna();
+        }
+        return sum;
+    }
+    void dodadi(Gitara d){
+        Gitara * tmp = new Gitara[br+1];
+        for (int i = 0; i < br; ++i){
+            tmp[i]=gitari[i];
+        }
+            tmp[br]=d;
+            delete[]gitari;
+            gitari=tmp;
+            br++;
+    }
+    void prodadi(Gitara p){
+        int newBr=0;
+        for (int i = 0; i < br; ++i) {
+            if(!gitari[i].daliIsti(p)){
+                newBr++;
+            }
+        }
+        Gitara * tmp = new Gitara[newBr];
+        int j=0;
+        for (int i = 0; i < br; ++i) {
+            if(!gitari[i].daliIsti(p)){
+                tmp[j]=gitari[i];
+                j++;
+            }
+        }
+        delete[]gitari;
+        gitari=tmp;
+        br=newBr;
+    }
+    void pecati(bool daliNovi){
+        cout<<ime<<" "<<lokacija<<" "<<endl;
+        for (int i = 0; i < br; ++i) {
+            if(daliNovi==true && gitari[i].getGodina()>god){
+                gitari[i].pecati();
+            }
+            else if(daliNovi==false){
+                gitari[i].pecati();
+            }
+        }
     }
 };
 

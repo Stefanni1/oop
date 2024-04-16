@@ -1,141 +1,138 @@
 #include<iostream>
 #include<cstring>
-#define MAX 25
 using namespace std;
 class List{
 private:
-    int * niza;
-    int len;
+    int * broevi;
+    int brBroevi;
 public:
-    List(int *niza,int len) {
-        this->len=len;
-        this->niza=new int[len];
-        for (int i = 0; i < len; ++i) {
-            this->niza[i]=niza[i];
-        }
+    List(int * broevi=0, int brBroevi=0) {
+        this->broevi=new int[brBroevi];
+        this->brBroevi=brBroevi;
     }
     List(const List &l){
-        this->niza= new int[l.len];
-        for (int i = 0; i < l.len; ++i) {
-            this->niza[i]=l.niza[i];
-        }
-        this->len=l.len;
+        this->broevi=new int[l.brBroevi];
+        this->brBroevi=l.brBroevi;
     }
-    List &operator=(const List &l) {
-        if(this==&l) {
-            return *this;
+    List &operator=(const List &l){
+        if(this!=&l){
+            delete[]broevi;
+            this->broevi=new int[l.brBroevi];
+            this->brBroevi=l.brBroevi;
         }
-            delete[]this->niza;
-            this->niza = new int[l.len];
-            for (int i = 0; i < l.len; ++i) {
-                this->niza[i] = l.niza[i];
-            }
-            this->len = l.len;
-            return *this;
-        }
+        return *this;
+    }
 
-    int getLen() {
-        return len;
+    int *getBroevi() const {
+        return broevi;
     }
+
+    void setBroevi(int *broevi) {
+        List::broevi = broevi;
+    }
+
+    int getBrBroevi() const {
+        return brBroevi;
+    }
+
+    void setBrBroevi(int brBroevi) {
+        List::brBroevi = brBroevi;
+    }
+
     void pecati(){
-        cout<<len<<": ";
-        for (int i = 0; i < len; ++i) {
-            cout<<niza[i]<<" ";
-        }
-        cout<<"sum: "<<sum()<<"average: "<<average()<<endl;
+        cout<<brBroevi<<": "<<sum()<<": "<<average()<<": "<<endl;
     }
     int sum(){
-        int s=0;
-        for (int i = 0; i < len; ++i) {
-            s+=niza[i];
+        int suma=0;
+        for (int i = 0; i < brBroevi; ++i) {
+            suma+=broevi[i];
         }
-        return s;
+        return suma;
     }
     double average(){
-        return (double)sum()/len;
+        int total=sum();
+        if(brBroevi !=0){
+            return(double)total/brBroevi;
+        }
+        else{
+            return 0;
+        }
     }
-    ~List(){
-        delete[]niza;
-    }
-
-
-
 };
 class ListContainer{
 private:
-    List* list;
-    int len;
-    int capacity;
-    int obid=0;
+    List * list;
+    int brElementi;
+    int brObidi=0;
 public:
-    ListContainer(){
-        capacity=MAX;
-        this->list=new List[capacity];
-        this->len=this->obid=0;
+    ListContainer(List * list=NULL, int brElementi=0,int brObidi=0){
+        this->list=new List[brElementi];
+        this->brElementi=brElementi;
+        this->brObidi=brObidi;
     }
     ListContainer(const ListContainer &lc){
-        this->list = new List[MAX];
-        for(int i = 0; i < lc.len; i++)
-            this->list[i] = lc.list[i];
-        this->len = lc.len;
-        this->obid = lc.obid;
+        this->list=new List[lc.brElementi];
+        this->brElementi=lc.brElementi;
+        this->brObidi=lc.brObidi;
+        for (int i = 0; i < brElementi; ++i) {
+            list[i]=lc.list[i];
+        }
     }
     ListContainer &operator=(const ListContainer &lc){
-        if(this==&lc){
-            return *this;
+        if(this!=&lc){
+            delete[]list;
+            this->list=new List[lc.brElementi];
+            this->brElementi=lc.brElementi;
+            this->brObidi=lc.brObidi;
+            for (int i = 0; i < brElementi; ++i) {
+                list[i]=lc.list[i];
+            }
         }
-        delete[]list;
-        this->list = new List[MAX];
-        for(int i = 0; i < lc.len; i++)
-            this->list[i] = lc.list[i];
-        this->len = lc.len;
-        this->obid = lc.obid;
         return *this;
     }
     void print(){
-        if(len<=0){
-            cout<<"The list is empty"<<endl;
+        if(brElementi==0){
+            cout<<"The list is empty."<<endl;
             return;
         }
-        for (int i = 0; i < len; ++i) {
-            cout<<"List number: "<<(i+1)<<"List info: ";
+        for (int i = 0; i < brElementi; ++i) {
+            cout<<"List number: "<<i+1<<"List info: ";
             list[i].pecati();
         }
-        cout<<"sum: "<<sum()<<"average: "<<average()<<endl;
-        cout<<"Successful attemts: "<<len<<"Failed attempts: "<<(obid-len)<<endl;
-
+        cout<<"Sum: "<<sum()<<" Average: "<<average()<<endl;
     }
-    void addNewList(List l){
-        obid++;
-        for (int i = 0; i < len; ++i) {
-            if(list[i].sum()==l.sum()){
-                return;
-            }
+    void addNewList(List &l){
+        List * temp = new List[brElementi+1];
+        for (int i = 0; i < brElementi; ++i) {
+            temp[i]=list[i];
         }
-        list[len++]=l;
+        temp[brElementi]=l;
+        delete[]list;
+        list=temp;
+        brElementi++;
     }
     int sum(){
-        int s=0;
-        for (int i = 0; i < len; ++i) {
-            s+=list[i].sum();
+        int suma=0;
+        for (int i = 0; i < brElementi; ++i) {
+            suma+=list[i].sum();
         }
-        return s;
+        return suma;
     }
+
     double average(){
-        int av=0;
-        for (int i = 0; i < len; ++i) {
-            av+=list[i].getLen();
+        int total=sum();
+        if(brElementi !=0){
+            return(double)total/brElementi;
         }
-        return (double)sum()/av;
+        else{
+            return 0;
+        }
     }
-    ~ListContainer(){
-        delete[]list;
-    }
-
-
-
 
 };
+
+
+
 int main() {
 
     ListContainer lc;

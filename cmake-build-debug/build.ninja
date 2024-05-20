@@ -1393,6 +1393,204 @@ build karticka.exe: CXX_EXECUTABLE_LINKER__karticka_Debug CMakeFiles/karticka.di
   TARGET_IMPLIB = libkarticka.dll.a
   TARGET_PDB = karticka.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target datoteki
+
+
+#############################################
+# Order-only phony target for datoteki
+
+build cmake_object_order_depends_target_datoteki: phony || CMakeFiles/datoteki.dir
+
+build CMakeFiles/datoteki.dir/kol2/datoteki.cpp.obj: CXX_COMPILER__datoteki_Debug C$:/Users/Stefanija/Desktop/oop/kol2/datoteki.cpp || cmake_object_order_depends_target_datoteki
+  DEP_FILE = CMakeFiles\datoteki.dir\kol2\datoteki.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\datoteki.dir
+  OBJECT_FILE_DIR = CMakeFiles\datoteki.dir\kol2
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target datoteki
+
+
+#############################################
+# Link the executable datoteki.exe
+
+build datoteki.exe: CXX_EXECUTABLE_LINKER__datoteki_Debug CMakeFiles/datoteki.dir/kol2/datoteki.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\datoteki.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = datoteki.exe
+  TARGET_IMPLIB = libdatoteki.dll.a
+  TARGET_PDB = datoteki.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target 16
+
+
+#############################################
+# Order-only phony target for 16
+
+build cmake_object_order_depends_target_16: phony || CMakeFiles/16.dir
+
+build CMakeFiles/16.dir/kol2/16.cpp.obj: CXX_COMPILER__16_Debug C$:/Users/Stefanija/Desktop/oop/kol2/16.cpp || cmake_object_order_depends_target_16
+  DEP_FILE = CMakeFiles\16.dir\kol2\16.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\16.dir
+  OBJECT_FILE_DIR = CMakeFiles\16.dir\kol2
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target 16
+
+
+#############################################
+# Link the executable 16.exe
+
+build 16.exe: CXX_EXECUTABLE_LINKER__16_Debug CMakeFiles/16.dir/kol2/16.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\16.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = 16.exe
+  TARGET_IMPLIB = lib16.dll.a
+  TARGET_PDB = 16.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target 3
+
+
+#############################################
+# Order-only phony target for 3
+
+build cmake_object_order_depends_target_3: phony || CMakeFiles/3.dir
+
+build CMakeFiles/3.dir/kol2/3.cpp.obj: CXX_COMPILER__3_Debug C$:/Users/Stefanija/Desktop/oop/kol2/3.cpp || cmake_object_order_depends_target_3
+  DEP_FILE = CMakeFiles\3.dir\kol2\3.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\3.dir
+  OBJECT_FILE_DIR = CMakeFiles\3.dir\kol2
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target 3
+
+
+#############################################
+# Link the executable 3.exe
+
+build 3.exe: CXX_EXECUTABLE_LINKER__3_Debug CMakeFiles/3.dir/kol2/3.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\3.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = 3.exe
+  TARGET_IMPLIB = lib3.dll.a
+  TARGET_PDB = 3.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target 8
+
+
+#############################################
+# Order-only phony target for 8
+
+build cmake_object_order_depends_target_8: phony || CMakeFiles/8.dir
+
+build CMakeFiles/8.dir/kol2/8.cpp.obj: CXX_COMPILER__8_Debug C$:/Users/Stefanija/Desktop/oop/kol2/8.cpp || cmake_object_order_depends_target_8
+  DEP_FILE = CMakeFiles\8.dir\kol2\8.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\8.dir
+  OBJECT_FILE_DIR = CMakeFiles\8.dir\kol2
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target 8
+
+
+#############################################
+# Link the executable 8.exe
+
+build 8.exe: CXX_EXECUTABLE_LINKER__8_Debug CMakeFiles/8.dir/kol2/8.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\8.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = 8.exe
+  TARGET_IMPLIB = lib8.dll.a
+  TARGET_PDB = 8.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target 9
+
+
+#############################################
+# Order-only phony target for 9
+
+build cmake_object_order_depends_target_9: phony || CMakeFiles/9.dir
+
+build CMakeFiles/9.dir/kol2/9.cpp.obj: CXX_COMPILER__9_Debug C$:/Users/Stefanija/Desktop/oop/kol2/9.cpp || cmake_object_order_depends_target_9
+  DEP_FILE = CMakeFiles\9.dir\kol2\9.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\9.dir
+  OBJECT_FILE_DIR = CMakeFiles\9.dir\kol2
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target 9
+
+
+#############################################
+# Link the executable 9.exe
+
+build 9.exe: CXX_EXECUTABLE_LINKER__9_Debug CMakeFiles/9.dir/kol2/9.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\9.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = 9.exe
+  TARGET_IMPLIB = lib9.dll.a
+  TARGET_PDB = 9.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target 6
+
+
+#############################################
+# Order-only phony target for 6
+
+build cmake_object_order_depends_target_6: phony || CMakeFiles/6.dir
+
+build CMakeFiles/6.dir/kol2/6.cpp.obj: CXX_COMPILER__6_Debug C$:/Users/Stefanija/Desktop/oop/kol2/6.cpp || cmake_object_order_depends_target_6
+  DEP_FILE = CMakeFiles\6.dir\kol2\6.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\6.dir
+  OBJECT_FILE_DIR = CMakeFiles\6.dir\kol2
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target 6
+
+
+#############################################
+# Link the executable 6.exe
+
+build 6.exe: CXX_EXECUTABLE_LINKER__6_Debug CMakeFiles/6.dir/kol2/6.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\6.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = 6.exe
+  TARGET_IMPLIB = lib6.dll.a
+  TARGET_PDB = 6.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -1419,6 +1617,16 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build 16: phony 16.exe
+
+build 3: phony 3.exe
+
+build 6: phony 6.exe
+
+build 8: phony 8.exe
+
+build 9: phony 9.exe
+
 build abc: phony abc.exe
 
 build abd: phony abd.exe
@@ -1438,6 +1646,8 @@ build athlete: phony athlete.exe
 build av.hotel: phony av.hotel.exe
 
 build c: phony c.exe
+
+build datoteki: phony datoteki.exe
 
 build dp: phony dp.exe
 
@@ -1509,7 +1719,7 @@ build z: phony z.exe
 #############################################
 # Folder: C:/Users/Stefanija/Desktop/oop/cmake-build-debug
 
-build all: phony oop1.exe oop.exe email.exe agol.exe krug.exe transaction.exe engine.exe footbal.exe list.exe abc.exe abd.exe abe.exe alien.exe ach.exe dropka.exe arr.exe ek.exe p.exe pp.exe q.exe qs.exe pica.exe pizza.exe ebook.exe dp.exe patnik.exe git.exe c.exe z.exe i.exe is.exe ppp.exe vozac.exe av.hotel.exe hero.exe athlete.exe pz.exe oglas.exe phone.exe vehicle.exe karticka.exe
+build all: phony oop1.exe oop.exe email.exe agol.exe krug.exe transaction.exe engine.exe footbal.exe list.exe abc.exe abd.exe abe.exe alien.exe ach.exe dropka.exe arr.exe ek.exe p.exe pp.exe q.exe qs.exe pica.exe pizza.exe ebook.exe dp.exe patnik.exe git.exe c.exe z.exe i.exe is.exe ppp.exe vozac.exe av.hotel.exe hero.exe athlete.exe pz.exe oglas.exe phone.exe vehicle.exe karticka.exe datoteki.exe 16.exe 3.exe 8.exe 9.exe 6.exe
 
 # =============================================================================
 # Built-in targets

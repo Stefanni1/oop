@@ -44,6 +44,14 @@ add_executable(oglas kol2/10.cpp)
 add_executable(phone kol2/12.cpp)
 add_executable(vehicle kol2/av10.cpp)
 add_executable(karticka kol2/7.cpp)
+add_executable(datoteki kol2/datoteki.cpp)
+add_executable(16 kol2/16.cpp)
+add_executable(3 kol2/3.cpp)
+add_executable(8 kol2/8.cpp)
+add_executable(9 kol2/9.cpp)
+add_executable(6 kol2/6.cpp)
+
+
 
 
 

@@ -39,5 +39,11 @@ C:/Users/Stefanija/Desktop/oop/cmake-build-debug/CMakeFiles/oglas.dir
 C:/Users/Stefanija/Desktop/oop/cmake-build-debug/CMakeFiles/phone.dir
 C:/Users/Stefanija/Desktop/oop/cmake-build-debug/CMakeFiles/vehicle.dir
 C:/Users/Stefanija/Desktop/oop/cmake-build-debug/CMakeFiles/karticka.dir
+C:/Users/Stefanija/Desktop/oop/cmake-build-debug/CMakeFiles/datoteki.dir
+C:/Users/Stefanija/Desktop/oop/cmake-build-debug/CMakeFiles/16.dir
+C:/Users/Stefanija/Desktop/oop/cmake-build-debug/CMakeFiles/3.dir
+C:/Users/Stefanija/Desktop/oop/cmake-build-debug/CMakeFiles/8.dir
+C:/Users/Stefanija/Desktop/oop/cmake-build-debug/CMakeFiles/9.dir
+C:/Users/Stefanija/Desktop/oop/cmake-build-debug/CMakeFiles/6.dir
 C:/Users/Stefanija/Desktop/oop/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/Stefanija/Desktop/oop/cmake-build-debug/CMakeFiles/rebuild_cache.dir
